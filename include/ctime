@@ -62,6 +62,7 @@ using ::tm;
 #endif
 //using ::clock;
 using ::difftime;
+using ::time;
 #ifndef _LIBCPP_HAS_NO_THREAD_UNSAFE_C_FUNCTIONS
 using ::asctime;
 using ::gmtime;
