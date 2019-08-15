@@ -63,6 +63,13 @@ constexpr size_t strerror_buff_size = 1024;
 
 string do_strerror_r(int ev);
 
+string do_strerror_r(int ev) {
+    string buff(strerror_buff_size, '\0');
+    char* ret = ::strerror_r(ev, (char*)buff.c_str(), strerror_buff_size);
+    return buff;
+}
+
+/*
 #if defined(_LIBCPP_MSVCRT_LIKE)
 string do_strerror_r(int ev) {
   char buffer[strerror_buff_size];
@@ -124,6 +131,7 @@ string do_strerror_r(int ev) {
     return string(error_message);
 }
 #endif
+*/
 } // end namespace
 #endif
 

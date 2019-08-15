@@ -10,6 +10,7 @@
 #ifndef _LIBCPP_STRSTREAM
 #define _LIBCPP_STRSTREAM
 
+#warning "strstreambuf will greatly increase contract size"
 /*
     strstream synopsis
 

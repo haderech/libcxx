@@ -54,22 +54,17 @@ int timespec_get( struct timespec *ts, int base); // C++17
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 
-using ::clock_t;
 using ::size_t;
 using ::time_t;
 using ::tm;
 #if _LIBCPP_STD_VER > 14 && defined(_LIBCPP_HAS_C11_FEATURES)
-using ::timespec;
+//using ::timespec;
 #endif
-using ::clock;
+//using ::clock;
 using ::difftime;
-using ::mktime;
-using ::time;
 #ifndef _LIBCPP_HAS_NO_THREAD_UNSAFE_C_FUNCTIONS
 using ::asctime;
-using ::ctime;
 using ::gmtime;
-using ::localtime;
 #endif
 using ::strftime;
 #if _LIBCPP_STD_VER > 14 && defined(_LIBCPP_HAS_TIMESPEC_GET)

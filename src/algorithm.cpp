@@ -7,9 +7,9 @@
 //===----------------------------------------------------------------------===//
 
 #include "algorithm"
-#include "random"
+//#include "random"
 #ifndef _LIBCPP_HAS_NO_THREADS
-#include "mutex"
+//#include "mutex"
 #if defined(__unix__) &&  defined(__ELF__) && defined(_LIBCPP_HAS_COMMENT_LIB_PRAGMA)
 #pragma comment(lib, "pthread")
 #endif
@@ -50,7 +50,7 @@ template bool __insertion_sort_incomplete<__less<double>&, double*>(double*, dou
 template bool __insertion_sort_incomplete<__less<long double>&, long double*>(long double*, long double*, __less<long double>&);
 
 template unsigned __sort5<__less<long double>&, long double*>(long double*, long double*, long double*, long double*, long double*, __less<long double>&);
-
+/*
 #ifndef _LIBCPP_HAS_NO_THREADS
 _LIBCPP_SAFE_STATIC static __libcpp_mutex_t __rs_mut = _LIBCPP_MUTEX_INITIALIZER;
 #endif
@@ -91,5 +91,5 @@ __rs_get()
 {
     return __rs_default();
 }
-
+*/
 _LIBCPP_END_NAMESPACE_STD

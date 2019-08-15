@@ -9,7 +9,7 @@
 
 #ifndef _LIBCPP_IOSTREAM
 #define _LIBCPP_IOSTREAM
-
+#error "iostreams currently clash with eosio::datastream"
 /*
     iostream synopsis
 

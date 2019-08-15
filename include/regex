@@ -10,6 +10,8 @@
 #ifndef _LIBCPP_REGEX
 #define _LIBCPP_REGEX
 
+#warning "std::regex will greatly increase contract size"
+
 /*
     regex synopsis
 

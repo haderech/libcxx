@@ -37,7 +37,7 @@ void throw_helper( const string& msg )
 #ifndef _LIBCPP_NO_EXCEPTIONS
     throw T( msg );
 #else
-    fprintf(stderr, "%s\n", msg.c_str());
+    //fprintf(stderr, "%s\n", msg.c_str());
     _VSTD::abort();
 #endif
 }
