@@ -180,7 +180,11 @@ using::uint_fast32_t;
 using::uint_fast64_t;
 
 using::intptr_t;
+#ifdef EOSIO_NATIVE
+using uintptr_t = unsigned long;
+#else
 using::uintptr_t;
+#endif
 
 using::intmax_t;
 using::uintmax_t;

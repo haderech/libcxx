@@ -68,7 +68,7 @@ using ::gmtime;
 #endif
 using ::strftime;
 #if _LIBCPP_STD_VER > 14 && defined(_LIBCPP_HAS_TIMESPEC_GET)
-using ::timespec_get;
+//using ::timespec_get;
 #endif
 
 _LIBCPP_END_NAMESPACE_STD
