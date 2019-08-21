@@ -15,6 +15,7 @@
   using namespace __cxxabiv1;
   #define HAVE_DEPENDENT_EH_ABI 1
 #endif
+#endif
 
 #if defined(_LIBCPP_ABI_MICROSOFT)
 #include "support/runtime/exception_msvc.ipp"

@@ -9,7 +9,13 @@
 
 #ifndef _LIBCPP_NEW
 #define _LIBCPP_NEW
-
+/*
+#ifdef EOSIO_NATIVE
+typedef unsigned long std::size_t;
+#else
+typedef unsigned int std::size_t;
+#endif
+*/
 /*
     new synopsis
 
