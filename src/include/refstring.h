@@ -18,8 +18,8 @@
 #include "dlfcn.h"
 #include "dyld.h"
 #endif
-#include "atomic_support.h"
 */
+#include "atomic_support.h"
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 

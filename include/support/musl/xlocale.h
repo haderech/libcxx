@@ -50,6 +50,8 @@ static inline long double wcstold_l(const wchar_t *nptr, wchar_t **endptr,
   return wcstold(nptr, endptr);
 }
 
+size_t strftime_l(char *s, size_t max, const char *format, const struct tm *tm, locale_t);
+
 #ifdef __cplusplus
 }
 #endif
