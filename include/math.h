@@ -190,8 +190,8 @@ float          fdimf(float x, float y);
 long double    fdiml(long double x, long double y);
 
 floating_point fma (arithmetic x, arithmetic y, arithmetic z);
-//float          fmaf(float x, float y, float z);
-//long double    fmal(long double x, long double y, long double z);
+float          fmaf(float x, float y, float z);
+long double    fmal(long double x, long double y, long double z);
 
 floating_point fmax (arithmetic x, arithmetic y);
 float          fmaxf(float x, float y);
@@ -297,9 +297,6 @@ long double    truncl(long double x);
 #pragma GCC system_header
 #endif
 
-#define _LIBCPP_STDLIB_INCLUDE_NEXT
-#include <stdlib.h>
-
 #include_next <math.h>
 
 #ifdef __cplusplus
@@ -308,6 +305,7 @@ long double    truncl(long double x);
 // back to C++ linkage before including these C++ headers.
 extern "C++" {
 
+#include <stdlib.h>
 #include <type_traits>
 #include <limits>
 
@@ -510,7 +508,11 @@ _LIBCPP_INLINE_VISIBILITY
 bool
 __libcpp_isnan(_A1 __lcpp_x) _NOEXCEPT
 {
+#if __has_builtin(__builtin_isnan)
+    return __builtin_isnan(__lcpp_x);
+#else
     return isnan(__lcpp_x);
+#endif
 }
 
 #undef isnan
@@ -756,61 +758,12 @@ isunordered(_A1 __lcpp_x, _A2 __lcpp_y) _NOEXCEPT
 #endif  // isunordered
 
 // abs
-
-#undef abs
-#undef labs
-#ifndef _LIBCPP_HAS_NO_LONG_LONG
-#undef llabs
-#endif
-
-// MSVCRT already has the correct prototype in <stdlib.h> if __cplusplus is defined
-#if !defined(_LIBCPP_MSVCRT) && !defined(__sun__) && !defined(_AIX)
-inline _LIBCPP_INLINE_VISIBILITY long abs(long __x) _NOEXCEPT {
-  return ::labs(__x);
-}
-#ifndef _LIBCPP_HAS_NO_LONG_LONG
-inline _LIBCPP_INLINE_VISIBILITY long long abs(long long __x) _NOEXCEPT {
-  return ::llabs(__x);
-}
-#endif // _LIBCPP_HAS_NO_LONG_LONG
-#endif // !defined(_LIBCPP_MSVCRT) && !defined(__sun__) && !defined(_AIX)
-
-
-#if !(defined(_AIX) || defined(__sun__))
-inline _LIBCPP_INLINE_VISIBILITY float abs(float __lcpp_x) _NOEXCEPT {
-  return ::fabsf(__lcpp_x);
-}
-
-inline _LIBCPP_INLINE_VISIBILITY double abs(double __lcpp_x) _NOEXCEPT {
-  return ::fabs(__lcpp_x);
-}
-
-inline _LIBCPP_INLINE_VISIBILITY long double
-abs(long double __lcpp_x) _NOEXCEPT {
-  return ::fabsl(__lcpp_x);
-}
-#endif // !(defined(_AIX) || defined(__sun__))
+//
+// handled in stdlib.h
 
 // div
-
-#undef div
-#undef ldiv
-#ifndef _LIBCPP_HAS_NO_LONG_LONG
-#undef lldiv
-#endif
-
-// MSVCRT already has the correct prototype in <stdlib.h> if __cplusplus is defined
-#if !defined(_LIBCPP_MSVCRT) && !defined(__sun__) && !defined(_AIX)
-inline _LIBCPP_INLINE_VISIBILITY ldiv_t div(long __x, long __y) _NOEXCEPT {
-  return ::ldiv(__x, __y);
-}
-#ifndef _LIBCPP_HAS_NO_LONG_LONG
-inline _LIBCPP_INLINE_VISIBILITY lldiv_t div(long long __x,
-                                             long long __y) _NOEXCEPT {
-  return ::lldiv(__x, __y);
-}
-#endif // _LIBCPP_HAS_NO_LONG_LONG
-#endif // _LIBCPP_MSVCRT / __sun__ / _AIX
+//
+// handled in stdlib.h
 
 // acos
 
@@ -1233,7 +1186,7 @@ fdim(_A1 __lcpp_x, _A2 __lcpp_y) _NOEXCEPT
 }
 
 // fma
-/*
+
 inline _LIBCPP_INLINE_VISIBILITY float       fma(float __lcpp_x, float __lcpp_y, float __lcpp_z) _NOEXCEPT                   {return ::fmaf(__lcpp_x, __lcpp_y, __lcpp_z);}
 inline _LIBCPP_INLINE_VISIBILITY long double fma(long double __lcpp_x, long double __lcpp_y, long double __lcpp_z) _NOEXCEPT {return ::fmal(__lcpp_x, __lcpp_y, __lcpp_z);}
 
@@ -1254,7 +1207,7 @@ fma(_A1 __lcpp_x, _A2 __lcpp_y, _A3 __lcpp_z) _NOEXCEPT
                      std::_IsSame<_A3, __result_type>::value)), "");
     return ::fma((__result_type)__lcpp_x, (__result_type)__lcpp_y, (__result_type)__lcpp_z);
 }
-*/
+
 // fmax
 
 inline _LIBCPP_INLINE_VISIBILITY float       fmax(float __lcpp_x, float __lcpp_y) _NOEXCEPT             {return ::fmaxf(__lcpp_x, __lcpp_y);}

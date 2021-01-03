@@ -114,7 +114,6 @@ _LIBCPP_BEGIN_NAMESPACE_STD
 
 using ::mbstate_t;
 using ::size_t;
-/*
 using ::tm;
 using ::wint_t;
 using ::FILE;
@@ -187,7 +186,7 @@ using ::putwchar;
 using ::vwprintf;
 using ::wprintf;
 #endif
-*/
+
 _LIBCPP_END_NAMESPACE_STD
 
 #endif  // _LIBCPP_CWCHAR

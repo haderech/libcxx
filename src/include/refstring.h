@@ -13,12 +13,10 @@
 #include <stdexcept>
 #include <cstddef>
 #include <cstring>
-/*
 #ifdef __APPLE__
-#include "dlfcn.h"
-#include "dyld.h"
+#include <dlfcn.h>
+#include <mach-o/dyld.h>
 #endif
-*/
 #include "atomic_support.h"
 
 _LIBCPP_BEGIN_NAMESPACE_STD
@@ -42,7 +40,6 @@ inline char * data_from_rep(_Rep_base *rep) noexcept {
     return data + sizeof(*rep);
 }
 
-/*
 #if defined(__APPLE__)
 inline
 const char* compute_gcc_empty_string_storage() _NOEXCEPT
@@ -64,7 +61,6 @@ get_gcc_empty_string_storage() _NOEXCEPT
     return p;
 }
 #endif
-*/
 
 }} // namespace __refstring_imp
 
@@ -119,14 +115,11 @@ __libcpp_refstring::~__libcpp_refstring() {
 
 inline
 bool __libcpp_refstring::__uses_refcount() const {
-   return true;
-/*
 #ifdef __APPLE__
     return __imp_ != get_gcc_empty_string_storage();
 #else
     return true;
 #endif
-*/
 }
 
 _LIBCPP_END_NAMESPACE_STD

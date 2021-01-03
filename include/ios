@@ -9,6 +9,7 @@
 
 #ifndef _LIBCPP_IOS
 #define _LIBCPP_IOS
+
 /*
     ios synopsis
 
@@ -430,7 +431,8 @@ class _LIBCPP_EXCEPTION_ABI ios_base::failure
 public:
     explicit failure(const string& __msg, const error_code& __ec = io_errc::stream);
     explicit failure(const char* __msg, const error_code& __ec = io_errc::stream);
-    virtual ~failure() throw();
+    failure(const failure&) _NOEXCEPT = default;
+    virtual ~failure() _NOEXCEPT;
 };
 
 _LIBCPP_NORETURN inline _LIBCPP_INLINE_VISIBILITY
@@ -841,7 +843,7 @@ basic_ios<_CharT, _Traits>::set_rdbuf(basic_streambuf<char_type, traits_type>* _
     ios_base::set_rdbuf(__sb);
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 boolalpha(ios_base& __str)
 {
@@ -849,7 +851,7 @@ boolalpha(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 noboolalpha(ios_base& __str)
 {
@@ -857,7 +859,7 @@ noboolalpha(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 showbase(ios_base& __str)
 {
@@ -865,7 +867,7 @@ showbase(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 noshowbase(ios_base& __str)
 {
@@ -873,7 +875,7 @@ noshowbase(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 showpoint(ios_base& __str)
 {
@@ -881,7 +883,7 @@ showpoint(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 noshowpoint(ios_base& __str)
 {
@@ -889,7 +891,7 @@ noshowpoint(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 showpos(ios_base& __str)
 {
@@ -897,7 +899,7 @@ showpos(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 noshowpos(ios_base& __str)
 {
@@ -905,7 +907,7 @@ noshowpos(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 skipws(ios_base& __str)
 {
@@ -913,7 +915,7 @@ skipws(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 noskipws(ios_base& __str)
 {
@@ -921,7 +923,7 @@ noskipws(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 uppercase(ios_base& __str)
 {
@@ -929,7 +931,7 @@ uppercase(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 nouppercase(ios_base& __str)
 {
@@ -937,7 +939,7 @@ nouppercase(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 unitbuf(ios_base& __str)
 {
@@ -945,7 +947,7 @@ unitbuf(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 nounitbuf(ios_base& __str)
 {
@@ -953,7 +955,7 @@ nounitbuf(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 internal(ios_base& __str)
 {
@@ -961,7 +963,7 @@ internal(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 left(ios_base& __str)
 {
@@ -969,7 +971,7 @@ left(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 right(ios_base& __str)
 {
@@ -977,7 +979,7 @@ right(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 dec(ios_base& __str)
 {
@@ -985,7 +987,7 @@ dec(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 hex(ios_base& __str)
 {
@@ -993,7 +995,7 @@ hex(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 oct(ios_base& __str)
 {
@@ -1001,7 +1003,7 @@ oct(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 fixed(ios_base& __str)
 {
@@ -1009,7 +1011,7 @@ fixed(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 scientific(ios_base& __str)
 {
@@ -1017,7 +1019,7 @@ scientific(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 hexfloat(ios_base& __str)
 {
@@ -1025,7 +1027,7 @@ hexfloat(ios_base& __str)
     return __str;
 }
 
-inline _LIBCPP_INLINE_VISIBILITY
+inline
 ios_base&
 defaultfloat(ios_base& __str)
 {
