@@ -480,7 +480,7 @@ typedef __char32_t char32_t;
 #endif
 
 #if __has_extension(blocks)
-#  define _LIBCPP_HAS_EXTENSION_BLOCKS
+//#  define _LIBCPP_HAS_EXTENSION_BLOCKS
 #endif
 
 #if defined(_LIBCPP_HAS_EXTENSION_BLOCKS) && defined(__APPLE__)

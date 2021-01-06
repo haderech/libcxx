@@ -157,6 +157,9 @@ using ::quick_exit;
 #if _LIBCPP_STD_VER > 14 && defined(_LIBCPP_HAS_ALIGNED_ALLOC)
 using ::aligned_alloc;
 #endif
+#if __APPLE__
+using ::posix_memalign;
+#endif
 
 _LIBCPP_END_NAMESPACE_STD
 
