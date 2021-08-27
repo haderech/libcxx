@@ -119,8 +119,8 @@ using ::strtoul;
 #ifndef _LIBCPP_HAS_NO_LONG_LONG
 using ::strtoull;
 #endif // _LIBCPP_HAS_NO_LONG_LONG
-using ::rand;
-using ::srand;
+//using ::rand;
+//using ::srand;
 using ::calloc;
 using ::free;
 using ::malloc;

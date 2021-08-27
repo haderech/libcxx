@@ -108,7 +108,7 @@ using ::FILE;
 using ::fpos_t;
 using ::size_t;
 
-using ::fclose;
+//using ::fclose;
 using ::fflush;
 using ::setbuf;
 using ::setvbuf;
